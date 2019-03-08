@@ -10,13 +10,6 @@ import csv
 monthList = []
 profitList = []
 
-#define function to calculate financial stats
-def financeStats(months, profits):
-    numMonths = len(months)
-    netTotal = sum(profits)
-    avgProfit = (netTotal / numMonths)
-    print(avgProfit)
-
 # Read in csv file
 csvpath = os.path.join("..", "Resources", "budget_data.csv")
 
@@ -29,18 +22,19 @@ with open(csvpath, newline='') as csvfile:
         monthList.append(row[0])
         profitList.append(float(row[1]))
 
-    financeStats(monthList, profitList)
+
+    #calcuclate number of months and total profit
+    numMonths = len(monthList)
+    netProfit = sum(profitList)
+
+    print(numMonths, netProfit)
 
 
 
-
-
-#netProfit = sum(profitList)
-#print(netProfit)
-
-# print(financeStats(monthList, profitList))
-
-
-
-
-#print(f"The total number of months is {len(monthList)}")
+# Financial Analysis
+# ----------------------------
+# Total Months: 86
+# Total: $38382578
+# Average  Change: $-2315.12
+# Greatest Increase in Profits: Feb-2012 ($1926159)
+# Greatest Decrease in Profits: Sep-2013 ($-2196167)
