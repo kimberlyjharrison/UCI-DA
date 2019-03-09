@@ -1,8 +1,0 @@
----------------------------------------------------------------------------
-Financial Analysis
-Total Months: 86
-Net Profits: $ 38382578.00
-Average Change Month-over-Month: $(-2315.12)
-Greatest Month-over-Month Profit Increase: $(1926159.00) in Feb-2012
-Greatest Month-over-Month Profit Decrease: $(-2196167.00) in Sep-2013
----------------------------------------------------------------------------
