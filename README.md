@@ -11,7 +11,8 @@ K. Harrison
 - Homework 5: Pyber & Pymaceuticals | **Matplotlib**
 - Homework 6: WeatherPy | **APIs**
 - Homework 7: SQL Basics | **SQL**
+- Homework 8: Surfs Up! | **SQLAlchemy, Flask**
 
 During my tenure of the Unvieristy of California Irvine 2019 Data Analytics bootcamp, I completed weekly homework assignments to reinforce learning that are showcased in this repository. Each folder contains the assignment and submitted contents.
 
-**Skills Showcased:**  Python | Pandas | NumPy | Matplotlib | VBA | APIs | SQL | Technical Writing
+**Skills Showcased:**  Python | Pandas | NumPy | Matplotlib | VBA | APIs | SQL | SQLAlchemy | Flask | Technical Writing
