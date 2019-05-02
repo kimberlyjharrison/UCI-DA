@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WeatherPy Visualization Dashboard - Comparisons</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+	<body>
+	<!-- Navbar -->
+		<nav class="navbar navbar-expand-md bg-primary navbar-dark">
+		  <a class="navbar-brand" href="index.html">WeatherPy Climate Analysis Dashboard</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+
+		  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+		    <ul class="navbar-nav ml-auto">
+		    <li class="nav-item dropdown">
+		      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+		        Plots
+		      </a>
+		      <div class="dropdown-menu">
+		        <a class="dropdown-item" href="pages/temperature.html">Temperature</a>
+		        <a class="dropdown-item" href="pages/humidity.html">Humidity</a>
+		        <a class="dropdown-item" href="pages/cloudiness.html">Cloudiness</a>
+		        <a class="dropdown-item" href="pages/windspeed.html">Windspeed</a>
+		      </div>
+		    </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="pages/comparisons.html">Comparisons</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="pages/data.html">Data</a>
+		      </li> 
+		    </ul>
+		  </div> 
+		</nav>
+
+		<div class='container-fluid'>
+			<div class='col-md-12'>
+				<div class="card mt-5">
+				 	<div class="card-body">
+					    <h5 class="card-title">Visualization Library - Comparisons by Latitude</h5>
+					    <h6 class="card-subtitle mb-2 text-muted">Click on image below for more details.</h6>
+
+					    <div>
+	 						<div class="row">
+							    <div class="col-md-6 col-sm-12"> <a href="temperature.html"><img class = "img img-responsive" src="../assets/TemperatureByLatitude.png" style="width:100%; margin: 5px" alt=""></a> </div>
+							    <div class="col-md-6 col-sm-12"> <a href="humidity.html"><img class = "img img-responsive" src="../assets/HumidityByLatitude.png" style="width:100%; margin: 5px" alt=""></a> </div>
+							    <div class="col-md-6 col-sm-12"> <a href="cloudiness.html"><img class = "img img-responsive" src="../assets/CloudinessByLatitude.png" style="width:100%; margin: 5px" alt=""></a> </div>
+							    <div class="col-md-6 col-sm-12"> <a href="windspeed.html"><img class = "img img-responsive" src="../assets/WindSpeedByLatitude.png" style="width:100%; margin: 5px" alt=""></a> </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class='col-md-12'>
+				<div class="card mt-5">
+					<div class="card-body">
+					    <h5 class="card-title">Visualization Library - World Maps</h5>
+					    <h6 class="card-subtitle mb-2 text-muted">Click on image below for more details.</h6>
+
+					    <div>
+	 						<div class="row">
+							    <div class="col-md-6 col-sm-12"> <a href="temperature.html"><img class = "img img-responsive" src="../assets/WorldHeatMap.png" style="width:100%; margin: 5px" alt=""></a> </div>
+							    <div class="col-md-6 col-sm-12"> <a href="humidity.html"><img class = "img img-responsive" src="../assets/WorldHumidityMap.png" style="width:100%; margin: 5px" alt=""></a> </div>
+							    <div class="col-md-6 col-sm-12"> <a href="cloudiness.html"><img class = "img img-responsive" src="../assets/WorldCloudMap.png" style="width:100%; margin: 5px" alt=""></a> </div>
+							    <div class="col-md-6 col-sm-12"> <a href="windspeed.html"><img class = "img img-responsive" src="../assets/WorldWindSpeedMap.png" style="width:100%; margin: 5px" alt=""></a> </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</body>
+</html>
