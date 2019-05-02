@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WeatherPy Visualization Dashboard - Comparisons</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+	<body>
+	<!-- Navbar -->
+	<nav class="navbar navbar-expand-md navbar-dark bg-primary">
+	    
+	    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+	        <ul class="navbar-nav mr-auto">
+	            <li class="nav-item active">
+	                <a class="nav-link" href="index.html">WeatherPy Climate Analysis</a>
+	            </li>
+	        </ul>
+	    </div>
+	    
+	    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+	        <ul class="navbar-nav ml-auto">
+
+				<li class="nav-item dropdown">
+				    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          Plots
+				    </a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+				    	<a class="dropdown-item" href="temperature.html">Temperature</a>
+				        <a class="dropdown-item" href="humidity.html">Humidity</a>
+				        <a class="dropdown-item" href="cloudiness.html">Cloudiness</a>
+				        <a class="dropdown-item" href="windspeed.html">Windspeed</a>
+				   	</div>
+				</li>
+
+	            <li class="nav-item">
+	                <a class="nav-link" href="comparisons.html">Comparison</a>
+	            </li>
+
+	            <li class="nav-item">
+	                <a class="nav-link" href="data.html">Data</a>
+	            </li>
+
+	        </ul>
+	    </div>
+	</nav>
+
+		<div class='container-fluid'>
+
+			<div class='col-md-12'>
+				<div class="card mt-5">
+				  <div class="card-body">
+				    <h5 class="card-title">Visualization Library - Comparisons by Latitude</h5>
+				    <h6 class="card-subtitle mb-2 text-muted">Click on image below for more details.</h6>
+
+				    <div>
+ 						<div class="row">
+						    <div class="col-md-6 col-sm-12"> <a href="temperature.html"><img class = "img img-responsive" src="assets/TemperatureByLatitude.png" style="width:100%; margin: 5px" alt=""></a> </div>
+						    <div class="col-md-6 col-sm-12"> <a href="humidity.html"><img class = "img img-responsive" src="assets/HumidityByLatitude.png" style="width:100%; margin: 5px" alt=""></a> </div>
+						    <div class="col-md-6 col-sm-12"> <a href="cloudiness.html"><img class = "img img-responsive" src="assets/CloudinessByLatitude.png" style="width:100%; margin: 5px" alt=""></a> </div>
+						    <div class="col-md-6 col-sm-12"> <a href="windspeed.html"><img class = "img img-responsive" src="assets/WindSpeedByLatitude.png" style="width:100%; margin: 5px" alt=""></a> </div>
+						</div>
+						</div>
+				 	</div>
+				</div>
+
+				<div class='col-md-12'>
+				<div class="card mt-5">
+				  <div class="card-body">
+				    <h5 class="card-title">Visualization Library - World Maps</h5>
+				    <h6 class="card-subtitle mb-2 text-muted">Click on image below for more details.</h6>
+
+				    <div>
+ 						<div class="row">
+						    <div class="col-md-6 col-sm-12"> <a href="#"><img class = "img img-responsive" src="assets/WorldHeatMap.png" style="width:100%; margin: 5px" alt=""></a> </div>
+						    <div class="col-md-6 col-sm-12"> <a href="#"><img class = "img img-responsive" src="assets/WorldHumidityMap.png" style="width:100%; margin: 5px" alt=""></a> </div>
+						    <div class="col-md-6 col-sm-12"> <a href="#"><img class = "img img-responsive" src="assets/WorldCloudMap.png" style="width:100%; margin: 5px" alt=""></a> </div>
+						    <div class="col-md-6 col-sm-12"> <a href="#"><img class = "img img-responsive" src="assets/WorldWindSpeedMap.png" style="width:100%; margin: 5px" alt=""></a> </div>
+						</div>
+						</div>
+				 	</div>
+				</div>
+
+
+			</div>	
+
+		</div>
+	</div>
+</body>
+</html>

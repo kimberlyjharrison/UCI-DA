@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WeatherPy Visualization Dashboard - Harrison</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+	<body>
+	<!-- Navbar -->
+		<nav class="navbar navbar-expand-md bg-primary navbar-dark">
+		  <a class="navbar-brand" href="index.html">WeatherPy Climate Analysis Dashboard</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+
+		  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+		    <ul class="navbar-nav ml-auto">
+		    <li class="nav-item dropdown">
+		      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+		        Plots
+		      </a>
+		      <div class="dropdown-menu">
+		        <a class="dropdown-item" href="temperature.html">Temperature</a>
+		        <a class="dropdown-item" href="humidity.html">Humidity</a>
+		        <a class="dropdown-item" href="cloudiness.html">Cloudiness</a>
+		        <a class="dropdown-item" href="windspeed.html">Windspeed</a>
+		      </div>
+		    </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="comparisons.html">Comparisons</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="data.html">Data</a>
+		      </li> 
+		    </ul>
+		  </div> 
+		</nav>
+
+
+		<div class='container-fluid'>
+			<div class='row'>
+				<div class='col-md-8'>
+					<div class="card mt-5">
+					  <div class="card-body">
+					    <h1 class="card-title">WeatherPy</h1>
+					    <h5 class="card-subtitle mb-2 text-muted" style="font-style:italic;">A global analysis of weather data using python and APIs</h5>
+
+					   <img class = "img-responsive" src="assets/WorldHeatMap.png" style="width:40%; float: left; margin: 15px;" alt="first image" >
+					    <p class="card-text"> Current weather data, including temperature, humtidy, windspeed, and cloudiness, is sampled for 1500 random global cities using the OpenWeatherMap API. The data is plotted to determine the relationships between the cities location (latitude) and the weather variables to determine trends. </p><p></p>
+						 <p class="card-text">This project was an exercise in utlizing API data, along with python libraries, to collect and analyze real-world weather data. First, random coordinates were generated using the numpy random function and zipped into coordinate pairs. Then, the citipy library was used to determine the closest cities to the coordinate pairs. Next, OpenWeatherMap API was scraped to collect weather data and stored into a dictionary. Then, the weather dictionary was converted to a Pandas Data Frame. Finally, the Data Frame was plotted using Plotly/Matplotlib. Color Mapping was implimented to help visualize the data for various weather variables to determine trends.</p>
+						 <p>Check out the visualization library for analysis of the different trends!</p>
+					  </div>
+					</div>
+				</div>
+
+
+				<div class='col-md-4'>
+					
+					<div class="card mt-5">
+					  <div class="card-body">
+					    <h5 class="card-title">Visualization Library</h5>
+					    <h6 class="card-subtitle mb-2 text-muted">Click on image below for more details.</h6>
+
+					    <div>
+	 						<div class="row">
+							    <div class="col-md-6 col-sm-12"> <a href="temperature.html"><img class = "img img-responsive" src="assets/TemperatureByLatitude.png" style="width:100%; margin: 5px" alt=""></a> </div>
+							    <div class="col-md-6 col-sm-12"> <a href="humidity.html"><img class = "img img-responsive" src="assets/HumidityByLatitude.png" style="width:100%; margin: 5px" alt=""></a> </div>
+							    <div class="col-md-6 col-sm-12"> <a href="cloudiness.html"><img class = "img img-responsive" src="assets/CloudinessByLatitude.png" style="width:100%; margin: 5px" alt=""></a> </div>
+							    <div class="col-md-6 col-sm-12"> <a href="windspeed.html"><img class = "img img-responsive" src="assets/WindSpeedByLatitude.png" style="width:100%; margin: 5px" alt=""></a> </div>
+							</div>
+							</div>
+					 	</div>
+					</div>
+
+
+				</div>	
+
+			</div>
+		</div>
+
+
+	<!-- Added to make navbar work -->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	</body>
+</html>
