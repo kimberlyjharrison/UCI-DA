@@ -9,51 +9,63 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  <link rel="stylesheet" href="bootstrap.min.css">
 </head>
 
-<body>
+  <body>
 
-  <div class="container">
-    <div class="jumbotron text-center">
-      <h1>Mission to Mars</h1>
-      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    <div class="container">
+      <div class="jumbotron text-center">
+        <h1>Mission to Mars</h1>
+        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+      </div>
     </div>
-  </div>
 
-  <div class='container'>
-    <div class='row'>
-      <div class='col-md-12'>
-        <div class='card'>
+    <div class='container'>
+      
+      <div class='row'>
+        <div class='col-md-12'>
+          <div class='card'>
+            <div class='card-body border-dark'>
+              <h2 class='card-title'>Latest Mars News</h2>
+              <h4 class='card-subtitle mb-2 text-muted'> {{mars.news_title}}</h4>
+              <p> {{mars.news_p}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class='row'>
+        <div class='col-md-8'>
           <div class='card-body border-dark'>
-            <h2 class='card-title'>Latest Mars News</h2>
-            <h4 class='card-subtitle mb-2 text-muted'> {{mars.news_title}}</h4>
-            <p> {{mars.news_p}}</p>
+            <h2 class='card-title'>Featured Mars Image</h2>
+            <img src='{{ mars.featured_image_url}}' class='img img-fluid border border-dark' alt="Featured Image">
+          </div>
+        </div>
+
+        <div class='col-md-4'>
+            <h4 class='card-title mt-5'>Current Weather On Mars</h4>
+            <p class='card-text'>{{ mars.mars_weather}}</p>
+            <h4 class='card-title mt-5'>Mars Facts</h4>
+            <small>{{ mars.df_html|safe }}</small>
+        </div>
+      </div>
+    </div>
+
+    <div class='container mt-5'>
+      <div class='row'>
+        <div class='col-md-12'>
+          <div class='card bg-secondary'>
+            <h2 class='card-title text-center'>Mars Hemispheres</h2>
+            <div class="row">
+                <div class="col-md-6 col-sm-12"><img class = "img img-responsive p-3" src={{mars.hemisphere_image_url[0].img_url}} style="width:100%; margin: 5px" alt=""><h4 class='text-center'>{{mars.hemisphere_image_url[0].title}}</h4></div>
+                <div class="col-md-6 col-sm-12"><img class = "img img-responsive p-3" src={{mars.hemisphere_image_url[1].img_url}} style="width:100%; margin: 5px" alt=""><h4 class='text-center'>{{mars.hemisphere_image_url[1].title}}</h4></div>
+                <div class="col-md-6 col-sm-12"><img class = "img img-responsive p-3" src={{mars.hemisphere_image_url[2].img_url}} style="width:100%; margin: 5px" alt=""><h4 class='text-center'>{{mars.hemisphere_image_url[2].title}}</h4></div>
+                <div class="col-md-6 col-sm-12"><img class = "img img-responsive p-3" src={{mars.hemisphere_image_url[3].img_url}} style="width:100%; margin: 5px" alt=""><h4 class='text-center'>{{mars.hemisphere_image_url[3].title}}</h4></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-
-    <div class='row'>
-      <div class='col-md-8'>
-        <div class='card-body border-dark'>
-          <h2 class='card-title'>Featured Mars Image</h2>
-          <img src='{{ mars.featured_image_url}}' class='img img-fluid border border-dark' alt="Featured Image">
-        </div>
-      </div>
-
-      <div class='col-md-4'>
-          <h4 class='card-title mt-5'>Current Weather On Mars</h4>
-          <p class='card-text'>{{ mars.mars_weather}}</p>
-          <h4 class='card-title mt-5'>Mars Facts</h4>
-          <small>{{ mars.df_html|safe }}</small>
-      </div>
-    </div>
-
-
-</div>
-
-
-
-</body>
-
+  </body>
 </html>
 

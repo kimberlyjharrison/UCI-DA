@@ -15,7 +15,6 @@ def scrape():
     html = browser.html
     soup = bs(html, 'html.parser')
 
-
     news_title = soup.find('div', class_='content_title').text.strip()
     news_p = soup.find('div', class_='rollover_description_inner').text.strip()
 
