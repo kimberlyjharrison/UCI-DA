@@ -36,13 +36,27 @@
                   <div class="form-group">
                     <ul class="list-group" id="filters">
                       <li class="filter list-group-item">
-                        <label for="date">Enter a Date</label>
-                        <input class="form-control" id="datetime" type="text" placeholder="1/11/2011">
+                        <label for='dropdown'>Search By:</label>
+                        <div class="dropdown">
+                            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Search Criteria
+                            <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                              <li><button class="dropdown-item btn-primary" type="button" id='datetime' onClick="reply_click(this.id)">Date</button></li>
+                              <li><button class="dropdown-item btn-primary" type="button" id="city" onClick="reply_click(this.id)">City</button></li>
+                              <li><button class="dropdown-item btn-primary" type="button" id= 'state' onClick="reply_click(this.id)">State</button></li>
+                              <li><button class="dropdown-item btn-primary" type="button" id='country' onClick="reply_click(this.id)">Country</button></li>
+                              <li><button class="dropdown-item btn-primary" type="button" id='shape' onClick="reply_click(this.id)">Shape</button></li>
+                            </ul>
+                          </div>
+                      </li>
+                      <li class="filter list-group-item">
+                        <label for="date">Enter Search Value:</label>
+                        <input class="form-control" id="inputfield" type="text" placeholder="Enter Filter">
                       </li>
                     </ul>
                   </div>
-                  <button id='loadall-btn' class='btn btn-default'>Load All Data</button>
                   <button id="filter-btn" type="submit" class="btn btn-default">Filter Table</button>
+                  <button id='loadall-btn' class='btn btn-default'>Load All Data</button>
                   <button id='clear-btn' class='btn btn-default'>Clear Table</button>
                 </form>
               </div>
@@ -73,6 +87,10 @@
       <span class="bottom">UFO Sightings</span>
     </footer>
   </div>
+ 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
   <script src="static/js/data.js"></script>
   <script src="static/js/app.js"></script>
