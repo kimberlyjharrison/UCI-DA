@@ -30,7 +30,55 @@ function buildMetadata(sample) {
 function buildCharts(sample) {
 
   // @TODO: Use `d3.json` to fetch the sample data for the plots
+  url = 'http://127.0.0.1:5000/samples/'+sample;
+  
+  d3.json(url).then(function(data) {
 
+    console.log(data)
+    
+    var otu_ids = data.otu_ids;
+    var sample_values = data.sample_values;
+    var otu_labels = data.otu_labels;
+    
+    var trace1 = {
+      x: otu_ids,
+      y: sample_values,
+      text: otu_labels,
+      mode: 'markers',
+      marker : {
+        size: sample_values,
+        color: otu_ids,
+        colorscale: "Portland",
+      }
+      
+    }
+
+    var data = [trace1];
+
+    var layout = {
+      title: {
+      text: `Bubble Chart for Sample ${sample}`,
+      font: {
+        size: 24
+      }},
+      height: 600,
+      width: 1600,
+      xaxis: {
+        title: "Bacteria ID",
+      },
+      yaxis: {
+        title: "Bacteria Frequency",
+      },
+
+
+    }
+
+    Plotly.newPlot('bubble', data, layout)
+    
+
+  });
+
+  
     // @TODO: Build a Bubble Chart using the sample data
 
     // @TODO: Build a Pie Chart
