@@ -2,7 +2,7 @@
 .ipynb_checkpoints
 .pyc
 config.py
-.vs_code
+.vscode
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
