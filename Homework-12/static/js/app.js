@@ -79,6 +79,7 @@ function buildCharts(sample) {
     // @TODO: Build a Pie Chart
     // HINT: You will need to use slice() to grab the top 10 sample_values,
     // otu_ids, and labels (10 each).
+    data.sample_values.sort((a,b) => parseFloat(b) - parseFloat(a));
   
     trace2 = {
       values: data.sample_values.slice(0,10),
