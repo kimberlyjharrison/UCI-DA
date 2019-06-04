@@ -1,44 +1,92 @@
 function buildMetadata(sample) {
-
-  // @TODO: Complete the following function that builds the metadata panel
-
-  // Use `d3.json` to fetch the metadata for a sample
-    // Use d3 to select the panel with id of `#sample-metadata`
     panel = d3.select("#sample-metadata")
-
-    // Use `.html("") to clear any existing metadata
     panel.html("")
 
-    // Use `Object.entries` to add each key and value pair to the panel
-    // Hint: Inside the loop, you will need to use d3 to append new
-    // tags for each key-value in the metadata.
-
     url = 'http://127.0.0.1:5000/metadata/'+sample;
-    // console.log(url)
 
     d3.json(url).then(function(data) {
       Object.entries(data).forEach(([key, value])=> {
-      // console.log(`${key}: ${value}`))
       panel.append('h6').text(`${key}: ${value}`);
+      wfreq = data.WFREQ;
+      
+      var level = wfreq;
+      var degrees = 180 - level*20,
+      radius = .5;
+      var radians = degrees * Math.PI / 180;
+      var x = radius * Math.cos(radians);
+      var y = radius * Math.sin(radians);
+
+      var mainPath = 'M -.0 -0.025 L .0 0.025 L ',
+      pathX = String(x),
+      space = ' ',
+      pathY = String(y),
+      pathEnd = ' Z';
+      var path = mainPath.concat(pathX,space,pathY,pathEnd);
+
+      var data3 = [{ type: 'scatter',
+      x: [0], y:[0],
+        marker: {size: 28, color:'850000'},
+        showlegend: false,
+        name: 'Scrubs',
+        text: level,
+        hoverinfo: 'text+name'},
+      { values: [45/8, 45/8, 45/8, 45/8, 45/8, 45/8, 45/8, 45/8, 45/8, 50],
+      rotation: 90,
+      text: ['8-9', '7-8', '6-7', '5-6', '4-5', '3-4', '2-3', '1-2', '0-1', ''],
+      textinfo: 'text',
+      textposition:'inside',
+      marker: {colors:[
+        'rgb(0, 103, 153)',
+        'rgb(0, 128, 178)',
+        'rgb(0, 154, 204)',
+        'rgb(8, 179, 229)',
+        'rgb(15, 190, 216)',
+        'rgb(20, 201, 203)',
+        'rgb(27, 215, 187)',
+        'rgb(34, 228, 172)',
+        'rgb(42, 245, 152)',
+        'rgba(255, 255, 255, 0)']},
+      labels: ['8-9', '7-8', '6-7', '5-6', '4-5', '3-4', '2-3', '1-2', '0-1'],
+      hoverinfo: 'label',
+      hole: .5,
+      type: 'pie',
+      showlegend: false
+    }];
+
+    var layout3 = {
+      shapes:[{
+          type: 'path',
+          path: path,
+          fillcolor: '850000',
+          line: {
+            color: '850000'
+          }
+        }],
+      title: '<b>Belly Button Washing Frequency</b> <br> Scrubs per Week',
+      height: 500,
+      width: 500,
+      xaxis: {zeroline:false, showticklabels:false,
+                showgrid: false, range: [-1, 1]},
+      yaxis: {zeroline:false, showticklabels:false,
+                showgrid: false, range: [-1, 1]},
+    };
+
+    Plotly.newPlot('gauge', data3, layout3);
+
       });
     });
+  }
 
-    // BONUS: Build the Gauge Chart
-    // buildGauge(data.WFREQ);
-}
+
 
 function buildCharts(sample) {
 
-  // @TODO: Use `d3.json` to fetch the sample data for the plots
   url = 'http://127.0.0.1:5000/samples/'+sample;
-  
   d3.json(url).then(function(data) {
-
     var otu_ids = data.otu_ids;
     var sample_values = data.sample_values;
     var otu_labels = data.otu_labels;
-    
-    // @TODO: Build a Bubble Chart using the sample data
+
     var trace1 = {
       x: otu_ids,
       y: sample_values,
@@ -49,17 +97,11 @@ function buildCharts(sample) {
         color: otu_ids,
         colorscale: "Portland",
       }
-      
     }
 
     var data1 = [trace1];
-
     var layout1 = {
-      title: {
-      text: `Bubble Chart for Sample ${sample}`,
-      font: {
-        size: 24
-      }},
+      title: '<b>Belly Button OTU Bubble Chart</b> <br> Sample' + ` ${sample}`,
       height: 600,
       width: 1600,
       margin: {
@@ -76,9 +118,6 @@ function buildCharts(sample) {
 
     Plotly.newPlot('bubble', data1, layout1)
     
-    // @TODO: Build a Pie Chart
-    // HINT: You will need to use slice() to grab the top 10 sample_values,
-    // otu_ids, and labels (10 each).
     data.sample_values.sort((a,b) => parseFloat(b) - parseFloat(a));
   
     trace2 = {
@@ -89,26 +128,11 @@ function buildCharts(sample) {
     }
 
     var data2 = [trace2];
-    
     var layout2 = {
-      title: `Pie Chart for Sample ${sample}`
+      title: '<b>Belly Button OTU Diversity</b> <br> Sample' + ` ${sample}`
     }
-
     Plotly.newPlot('pie', data2, layout2)
-  
-  
-
-
   });
-
-  
-    
-
-
-
-
-
-
 }
 
 function init() {

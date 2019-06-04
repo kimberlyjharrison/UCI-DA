@@ -111,8 +111,5 @@ def wfreq(sample):
 
     return jsonify(sample_metadata)
 
-
-
-
 if __name__ == "__main__":
     app.run()
