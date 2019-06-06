@@ -2,7 +2,7 @@ function buildMetadata(sample) {
     panel = d3.select("#sample-metadata")
     panel.html("")
 
-    url = 'http://127.0.0.1:5000/metadata/'+sample;
+    url = '/metadata/'+sample;
 
     d3.json(url).then(function(data) {
       Object.entries(data).forEach(([key, value])=> {
@@ -81,7 +81,7 @@ function buildMetadata(sample) {
 
 function buildCharts(sample) {
 
-  url = 'http://127.0.0.1:5000/samples/'+sample;
+  url = '/samples/'+sample;
   d3.json(url).then(function(data) {
     var otu_ids = data.otu_ids;
     var sample_values = data.sample_values;
@@ -104,10 +104,10 @@ function buildCharts(sample) {
       title: '<b>Belly Button OTU Bubble Chart</b> <br> Sample' + ` ${sample}`,
       height: 600,
       width: 1600,
-      margin: {
-        l: 200,
-        r: 200,
-      },
+      // margin: {
+      //   l: 300,
+      //   r: 200,
+      // },
       xaxis: {
         title: "Operational Taxonomical Units (OTU)",
       },
@@ -118,7 +118,7 @@ function buildCharts(sample) {
 
     Plotly.newPlot('bubble', data1, layout1)
     
-    data.sample_values.sort((a,b) => parseFloat(b) - parseFloat(a));
+    //data.sample_values.sort((a,b) => parseFloat(b) - parseFloat(a));
   
     trace2 = {
       values: data.sample_values.slice(0,10),
