@@ -30,6 +30,11 @@
   text-anchor: middle;
 }
 
+.stateCircle:hover {
+  fill: #000;
+  cursor: pointer;
+}
+
 .stateCircle {
   fill: #89bdd3;
   stroke: #e3e3e3;
