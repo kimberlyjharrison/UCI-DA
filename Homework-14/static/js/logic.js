@@ -1,4 +1,3 @@
-
 //K. Harrison
 //Homework 14
 //Earthquake Viz using Leaflet
@@ -57,7 +56,6 @@ function createFeatures(earthquakeData) {
   })
 }
 
-
 //Function to render map
 function createMap(earthquakes, faults) {
 
@@ -107,7 +105,7 @@ function createMap(earthquakes, faults) {
     layers: [Esri_WorldImagery, earthquakes, faults]
   });
 
-// Create legend (reference: https://leafletjs.com/examples/choropleth/)
+  // Create legend (reference: https://leafletjs.com/examples/choropleth/)
   var legend = L.control({position: 'bottomright'});
 
 	legend.onAdd = function (map) {
@@ -126,9 +124,8 @@ function createMap(earthquakes, faults) {
     return div;
 	};
 
-	// Add lgend to map
-	legend.addTo(map);
-
+  // Add lgend to map
+  legend.addTo(map);
 
   // Create a layer control
   // Pass in our baseMaps and overlayMaps
@@ -153,5 +150,3 @@ function getColor(d) {
 function scaleRadius(r) {
 	return r*4
 }
-
-
