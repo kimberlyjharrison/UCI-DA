@@ -1,5 +1,6 @@
 
 var queryUrl = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson'
+var faultsUrl = 'https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_plates.json'
 
 // Perform a GET request to the query URL
 d3.json(queryUrl, function(data) {
@@ -36,30 +37,28 @@ function createFeatures(earthquakeData) {
     onEachFeature: onEachFeature
   });
 
-  // Sending our earthquakes layer to the createMap function
-  createMap(earthquakes);
+
+
+  d3.json(faultsUrl, function(data) {
+
+  	var faults = L.geoJSON(data.features, {
+  		fillOpacity: 0,
+  	})
+
+  	createMap(earthquakes, faults);
+
+  })
+  
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-function createMap(earthquakes) {
+function createMap(earthquakes, faults) {
 
   // Define streetmap and darkmap layers
   var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
 	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
     maxZoom: 18,
-    id: "mapbox.esri",
+    id: "mapbox.sat",
     accessToken: API_KEY
   });
 
@@ -70,15 +69,26 @@ function createMap(earthquakes) {
     accessToken: API_KEY
   });
 
+  var Esri_WorldStreetMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012',
+	maxZoon: 18,
+	id: 'mapbox.street',
+	accessToken: API_KEY
+	});
+
   // Define a baseMaps object to hold our base layers
   var baseMaps = {
     "Satelite": Esri_WorldImagery,
+    "Street Map": Esri_WorldStreetMap,
     "Dark Map": darkmap
   };
 
+
   // Create overlay object to hold our overlay layer
   var overlayMaps = {
-    Earthquakes: earthquakes
+    'Earthquakes': earthquakes,
+    'Fault Lines': faults
+
   };
 
   // Create our map, giving it the streetmap and earthquakes layers to display on load
@@ -86,8 +96,8 @@ function createMap(earthquakes) {
     center: [
       37.09, -95.71
     ],
-    zoom: 5,
-    layers: [Esri_WorldImagery, earthquakes]
+    zoom: 3,
+    layers: [Esri_WorldImagery, earthquakes, faults]
   });
 
 //add legend
@@ -122,24 +132,6 @@ function createMap(earthquakes) {
 }
 
 
-
-
-
-// d3.json(queryUrl, function(data) {
-
-// 	earthquakeData = data.features
-
-// 	for(i = 0; i < earthquakeData.length; i++){
-// 		coordinates = earthquakeData[i].geometry.coordinates.slice(0,2)
-// 		mag = earthquakeData[i].properties.mag
-// 		//console.log(`Location: ${earthquakeData[i].properties.place}`)
-// 		// console.log(`Lat, Lon: ${coordinates}`)
-// 		// console.log(`Magnitude: ${mag}`)
-// 		// console.log("______")
-// 	}
-
-// });
-
 function getColor(d) {
     return d > 5 ? '#800026' :
            d > 4 ? '#BD0026' :
@@ -152,6 +144,8 @@ function getColor(d) {
 function scaleRadius(r) {
 	return r*4
 }
+
+
 
 
 
