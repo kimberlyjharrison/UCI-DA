@@ -111,7 +111,7 @@ function createMap(earthquakes, faults) {
 	legend.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend'),
-        grades = [0, 1, 2, 3, 4, 5],
+        grades = [0, 1, 2, 3, 4, 5, 6],
     	labels = [];
 
     // loop through our density intervals and generate a label with a colored square for each interval
@@ -138,7 +138,8 @@ function createMap(earthquakes, faults) {
 
 // Function to define color based on magnitude of earthquake
 function getColor(d) {
-    return d > 5 ? '#800026' :
+    return d > 6 ? '#FF00FF' :
+           d > 5 ? '#800026' :
            d > 4 ? '#BD0026' :
            d > 3 ? '#E31A1C' :
            d > 2 ? '#FC4E2A' :
